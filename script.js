@@ -102,6 +102,9 @@ for(const seats of seat){
           discountInput.classList.add('hidden')
             discountText = "";
             
+          }else if(discountText.length !== 0){
+            alert('please write a correct coupon')
+            discountText = ""
           }
         })
       
