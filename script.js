@@ -64,91 +64,58 @@ for(const seats of seat){
         let grandTotalPrice = document.getElementById('grand-total')
         let grandTotalPriceInner = grandTotalPrice.innerText
         let grandTotalPriceNum = parseInt(grandTotalPriceInner)
-        let grandTotalPriceIs = grandTotalPriceNum + totalPrice.innerText *4
-        grandTotalPrice.innerText = grandTotalPriceIs
-        console.log(totalPriceIs)
+        let grandTotalPriceIs = grandTotalPriceNum + price 
+        grandTotalPrice.innerText = totalPriceIs
 
         //   discount input
-       let discountInput = document.getElementById('discount-input')
-       discountInput.addEventListener('keyup',function(event){
+        let discountInput = document.getElementById('discount-input')
+        discountInput.addEventListener('keyup',function(event){
         discountText = event.target.value;
         
         let apply = document.getElementById("apply");
         apply.addEventListener('click', function(){
           if(discountText == "NEW15"){
             let discountIs = document.getElementById('discount-price');
-            discountIs.removeAttribute("class","hidden")
-            discountIs.setAttribute("class","flex justify-between items-center mt-10")
+          discountIs.removeAttribute("class","hidden")
+          discountIs.setAttribute("class","flex justify-between items-center mt-10")
+          let discount = document.getElementById('discount')
+          discount.innerText = 0.15 * grandTotalPriceIs *4  
 
-            let discount = document.getElementById('discount')
-             discount.innerText = 0.15 * grandTotalPriceIs
-            let discountPrice = grandTotalPriceIs - 0.15 * grandTotalPriceIs
-            grandTotalPrice.innerText = discountPrice
-            let discountInput = document.getElementById('discount-input')
-            discountInput.classList.add('hidden')
+          let discountPrice =  0.15 * grandTotalPriceIs
+          discountPriceIs = grandTotalPriceIs - discountPrice
+          grandTotalPrice.innerText = discountPriceIs  * 4
+          let discountInput = document.getElementById('discount-input')
+          discountInput.classList.add('hidden')
             discountText = "";
+            
           } else if(discountText == "Couple20"){
             let discountIs = document.getElementById('discount-price');
           discountIs.removeAttribute("class","hidden")
           discountIs.setAttribute("class","flex justify-between items-center mt-10")
           let discount = document.getElementById('discount')
-          discount.innerText = 0.20 * grandTotalPriceIs    
+          discount.innerText = 0.20 * grandTotalPriceIs *4  
 
-          let discountPrice = grandTotalPriceIs - 0.20 * grandTotalPriceIs
-          grandTotalPrice.innerText = discountPrice   
+          let discountPrice =  0.20 * grandTotalPriceIs
+          discountPriceIs = grandTotalPriceIs - discountPrice
+          grandTotalPrice.innerText = discountPriceIs  * 4
           let discountInput = document.getElementById('discount-input')
           discountInput.classList.add('hidden')
             discountText = "";
-          } else if(discountText.length != 0){
-            alert("Wrong Coupen");
-            discountText = "";
+            
           }
         })
-      //  if(event.target.value === 'NEW15'){
-      //   let apply = document.getElementById('apply')
-      //   apply.addEventListener('click',function(){   
-      //   let discountIs = document.getElementById('discount-price');
-      //   discountIs.removeAttribute("class","hidden")
-      //   discountIs.setAttribute("class","flex justify-between items-center mt-10")
-
-      //   let discount = document.getElementById('discount')
-      //   discount.innerText = 0.15 * grandTotalPriceIs
-      //   let discountPrice = grandTotalPriceIs - 0.15 * grandTotalPriceIs
-      //   grandTotalPrice.innerText = discountPrice
-      //   let discountInput = document.getElementById('discount-input')
-      //   discountInput.classList.add('hidden')
-        
-      //  })
-      // } 
-     
-      // if(event.target.value === 'Couple20'){
-      //   let apply = document.getElementById('apply')
-      //   apply.addEventListener('click',function(){  
-
-        // let discountIs = document.getElementById('discount-price');
-        // discountIs.removeAttribute("class","hidden")
-        // discountIs.setAttribute("class","flex justify-between items-center mt-10")
-        // let discount = document.getElementById('discount')
-        // discount.innerText = 0.20 * grandTotalPriceIs    
-
-        // let discountPrice = grandTotalPriceIs - 0.20 * grandTotalPriceIs
-        // grandTotalPrice.innerText = discountPrice   
-        // let discountInput = document.getElementById('discount-input')
-        // discountInput.classList.add('hidden')
-      //   })
-      // }
       
-    })
+       })
      //      discount-input-to-show
-     let seatCount = document.getElementById('select-count')
-     let seatCountInner = seatCount.innerText
-     let seatCountNum = parseInt(seatCountInner)
-     if(seatCountNum === 4){
+         let seatCount = document.getElementById('select-count')
+         let seatCountInner = seatCount.innerText
+         let seatCountNum = parseInt(seatCountInner)
+        if(seatCountNum === 4){
 
          let discountInput = document.getElementById('discount-input')
          discountInput.classList.remove('hidden')
      }
-    this.disabled = true;
+         this.disabled = true;
 
 
 })
